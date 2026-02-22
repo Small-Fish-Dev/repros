@@ -684,6 +684,102 @@
       "Children": []
     },
     {
+      "__guid": "4437f5eb-9870-48c6-8176-9efa95cb3c55",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Player Spawn (1)",
+      "Position": "-160,192,0",
+      "Rotation": "0,0,-0.3826834,0.9238796",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SpawnPoint",
+          "__guid": "abb073c7-6e52-4c6f-8421-fddf36c17fa9",
+          "__enabled": true,
+          "Flags": 0,
+          "Color": "0.8902,0.31765,0.05098,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "77c3cb4e-140c-4d77-a6a4-eef72daa11ad",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Player Spawn (2)",
+      "Position": "158.3919,158.3919,-0.00003656745",
+      "Rotation": "0,0,-0.9659258,0.2588191",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SpawnPoint",
+          "__guid": "48a7ce1b-8d21-4bcd-aca3-ffc871fadc2b",
+          "__enabled": true,
+          "Flags": 0,
+          "Color": "0.8902,0.31765,0.05098,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "d2fe10fe-1646-4b76-bc82-f6b554889b50",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Player Spawn (3)",
+      "Position": "167.4257,-161.9897,0.000009015203",
+      "Rotation": "0,0,-0.9659259,-0.2588189",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SpawnPoint",
+          "__guid": "06fe9115-438d-4efc-a77d-35c8787facd8",
+          "__enabled": true,
+          "Flags": 0,
+          "Color": "0.8902,0.31765,0.05098,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "619c8871-c5af-498b-b130-426676ade169",
       "__version": 2,
       "__Prefab": "prefabs/system/gm.prefab",
