@@ -47,7 +47,7 @@ public partial class Player : Pawn
 	{
 		base.OnFixedUpdate();
 
-		if ( !Controller.IsValid() )
+		if ( IsProxy || !Controller.IsValid() )
 			return;
 
 		var wishDirection = Input.AnalogMove.Normal * Rotation.FromYaw( EyeAngles.yaw ) * GameObject.WorldRotation;
@@ -88,6 +88,9 @@ public partial class Player : Pawn
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
+
+		if ( IsProxy )
+			return;
 
 		EyeAngles += Input.AnalogLook;
 		EyeAngles = EyeAngles.WithPitch( MathX.Clamp( EyeAngles.pitch, -89.5f, 89.5f ) );
