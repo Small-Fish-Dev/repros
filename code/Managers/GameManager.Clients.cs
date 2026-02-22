@@ -28,7 +28,10 @@ public partial class GameManager : Component.INetworkListener
 			return;
 		}
 
-		cl.AssignPawn( PlayerPrefab.Clone() );
+		var tSpawn = FindSpawnPoint();
+		var pl = PlayerPrefab.Clone( tSpawn );
+
+		cl.AssignPawn( pl );
 	}
 
 	public virtual void OnDisconnected( Connection cn )
