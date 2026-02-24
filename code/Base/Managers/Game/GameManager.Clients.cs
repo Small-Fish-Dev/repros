@@ -1,6 +1,8 @@
+using ShrimplePawns;
+
 namespace Repro;
 
-public partial class GameManager : Component.INetworkListener
+partial class GameManager : Component.INetworkListener
 {
 	[Property]
 	public GameObject ClientPrefab { get; set; }
@@ -22,16 +24,7 @@ public partial class GameManager : Component.INetworkListener
 			return;
 		}
 
-		if ( !PlayerPrefab.IsValid() )
-		{
-			Log.Warning( $"Couldn't create pawn for {cl}!" );
-			return;
-		}
-
-		var tSpawn = FindSpawnPoint();
-		var pl = PlayerPrefab.Clone( tSpawn );
-
-		cl.AssignPawn( pl );
+		AssignDefaultPawn( cl );
 	}
 
 	public virtual void OnDisconnected( Connection cn )
@@ -42,8 +35,14 @@ public partial class GameManager : Component.INetworkListener
 
 	protected Client CreateClient( Connection cn )
 	{
-		if ( !Networking.IsHost || !ClientPrefab.IsValid() )
+		if ( !Networking.IsHost )
 			return null;
+
+		if ( !ClientPrefab.IsValid() )
+		{
+			Log.Warning( $"{nameof( ClientPrefab )} was not valid!" );
+			return null;
+		}
 
 		var clObj = ClientPrefab.Clone();
 		var cl = clObj.Components.Get<Client>();
@@ -71,5 +70,42 @@ public partial class GameManager : Component.INetworkListener
 		cl = Scene.GetAll<Client>().FirstOrDefault( c => c.ConnectionId == cn.Id );
 
 		return cl.IsValid();
+	}
+
+	public virtual bool TryAssignPawn( Client cl, GameObject pawnObj, out Pawn pawn )
+	{
+		if ( !cl.IsValid() || !pawnObj.IsValid() )
+		{
+			pawn = null;
+			return false;
+		}
+
+		pawn = cl.AssignPawn( pawnObj );
+
+		if ( !pawn.IsValid() )
+		{
+			Log.Warning( $"Couldn't assign pawn:[{pawnObj}] for client:[{cl}]!" );
+			return false;
+		}
+
+		return true;
+	}
+
+	protected virtual Pawn AssignDefaultPawn( Client cl )
+	{
+		if ( !PlayerPrefab.IsValid() )
+		{
+			Log.Warning( $"Couldn't create default pawn for client:[{cl}]!" );
+			return null;
+		}
+
+		var tSpawn = FindSpawnPoint();
+		var plObj = PlayerPrefab.Clone( tSpawn );
+
+		if ( !TryAssignPawn( cl, plObj, out var pl ) )
+			if ( plObj.IsValid() )
+				plObj.Destroy();
+
+		return pl;
 	}
 }
