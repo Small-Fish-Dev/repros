@@ -109,4 +109,13 @@ public partial class Player : Pawn
 			Camera.WorldPosition = eyePos;
 		}
 	}
+
+	[Rpc.Owner( NetFlags.Reliable | NetFlags.HostOnly )]
+	public void RpcHostRespawn()
+	{
+		Log.Info( $"{nameof( RpcHostRespawn )} called on player:[{this}]." );
+
+		if ( State.TryGetInstance( out var state ) )
+			state.OnPlayerRespawn( this );
+	}
 }

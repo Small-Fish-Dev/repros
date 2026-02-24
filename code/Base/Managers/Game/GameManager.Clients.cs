@@ -8,7 +8,7 @@ partial class GameManager : Component.INetworkListener
 	public GameObject ClientPrefab { get; set; }
 
 	/// <summary>
-	/// The default pawn to assign if the state doesn't have one.
+	/// The default pawn to assign if the state doesn't.
 	/// </summary>
 	[Property]
 	public GameObject PlayerPrefab { get; set; }
@@ -111,7 +111,7 @@ partial class GameManager : Component.INetworkListener
 	{
 		if ( !PlayerPrefab.IsValid() )
 		{
-			Log.Warning( $"No valid default player pawn for client:[{cl}]!" );
+			Log.Warning( $"No valid default pawn for client:[{cl}]!" );
 			return null;
 		}
 

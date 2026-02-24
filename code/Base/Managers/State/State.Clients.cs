@@ -17,5 +17,16 @@ partial class State
 	/// <summary>
 	/// Called after a client has had its pawn successfully assigned.
 	/// </summary>
-	public virtual void OnPawnAssigned( Client cl, Pawn pawn ) { }
+	public virtual void OnPawnAssigned( Client cl, Pawn pawn )
+	{
+		if ( pawn is Player pl && pl.IsValid() )
+			pl.RpcHostRespawn();
+	}
+
+	/// <summary>
+	/// Called when the host tells the player to (re)spawn.
+	/// </summary>
+	public virtual void OnPlayerRespawn( Player pl )
+	{
+	}
 }
