@@ -793,6 +793,21 @@
         "eb7b98fb-aef5-42bc-8420-c53fec2e154e": "619c8871-c5af-498b-b130-426676ade169",
         "d4da701e-e583-4919-924c-ee4a2ee9c1e3": "991d1abd-f54d-440b-bc2f-a23d405faa97"
       }
+    },
+    {
+      "__guid": "b3926c28-2202-4e5a-8538-dc41543f6b38",
+      "__version": 2,
+      "__Prefab": "prefabs/repro/netspawn/state_netspawn.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "dc23c06f-55ae-4e7c-8fd5-a60fa99d34a6": "b3926c28-2202-4e5a-8538-dc41543f6b38",
+        "ea9685fd-e4eb-4223-8444-9428b42a4478": "8200bd78-df77-4d2f-a786-0c7ccc0c68eb"
+      }
     }
   ],
   "SceneProperties": {

@@ -116,6 +116,6 @@ public partial class Player : Pawn
 		Log.Info( $"{nameof( RpcHostRespawn )} called on player:[{this}]." );
 
 		if ( State.TryGetInstance( out var state ) )
-			state.OnPlayerRespawn( this );
+			state.OnLocalPlayerRespawn( this );
 	}
 }

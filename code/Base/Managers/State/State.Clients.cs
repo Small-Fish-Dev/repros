@@ -26,7 +26,7 @@ partial class State
 	/// <summary>
 	/// Called when the host tells the player to (re)spawn.
 	/// </summary>
-	public virtual void OnPlayerRespawn( Player pl )
+	public virtual void OnLocalPlayerRespawn( Player pl )
 	{
 	}
 }

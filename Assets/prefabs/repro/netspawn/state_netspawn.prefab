@@ -1,0 +1,119 @@
+{
+  "RootObject": {
+    "__guid": "dc23c06f-55ae-4e7c-8fd5-a60fa99d34a6",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "state_netspawn",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Repro.NetSpawnState",
+        "__guid": "ea9685fd-e4eb-4223-8444-9428b42a4478",
+        "__enabled": true,
+        "Flags": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Props": [
+          {
+            "Order": "Before",
+            "Model": "models/sbox_props/watermelon/watermelon.vmdl",
+            "Offset": {
+              "Position": "0,0,80",
+              "Scale": "1,1,1",
+              "Rotation": "0,0,0,1"
+            }
+          },
+          {
+            "Order": "After",
+            "Model": "models/sbox_props/cola_can/cola_can.vmdl",
+            "Offset": {
+              "Position": "0,16,80",
+              "Scale": "1,1,1",
+              "Rotation": "0,0,0,1"
+            }
+          },
+          {
+            "Order": "Before",
+            "Model": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
+            "Offset": {
+              "Position": "0,-16,80",
+              "Scale": "20,20,20",
+              "Rotation": "0,0,0,1"
+            }
+          },
+          {
+            "Order": "After",
+            "Model": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
+            "Offset": {
+              "Position": "0,-16,90",
+              "Scale": "20,20,20",
+              "Rotation": "0,0,0,1"
+            }
+          },
+          {
+            "Order": "Before",
+            "Model": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
+            "Offset": {
+              "Position": "0,-16,100",
+              "Scale": "20,20,20",
+              "Rotation": "0,0,0,1"
+            }
+          },
+          {
+            "Order": "After",
+            "Model": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
+            "Offset": {
+              "Position": "0,-16,110",
+              "Scale": "20,20,20",
+              "Rotation": "0,0,0,1"
+            }
+          }
+        ]
+      }
+    ],
+    "Children": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [
+    "facepunch.9mm_bullet#144858",
+    "facepunch.soda_can#33662",
+    "facepunch.watermelon#143952"
+  ],
+  "__version": 2
+}
