@@ -30,7 +30,13 @@ partial class GameManager : Component.INetworkListener
 	public virtual void OnDisconnected( Connection cn )
 	{
 		if ( TryFindClient( cn, out var cl ) )
-			cl.Destroy();
+		{
+			if ( State.TryGetInstance( out var state ) )
+				state.OnClientDisconnected( cl, cn );
+
+			if ( cl.IsValid() )
+				cl.Destroy();
+		}
 	}
 
 	protected Client CreateClient( Connection cn )
@@ -55,6 +61,9 @@ partial class GameManager : Component.INetworkListener
 
 		cl.AssignConnection( cn );
 
+		if ( State.TryGetInstance( out var state ) )
+			state.OnClientCreated( cl, cn );
+
 		clObj.NetworkSpawn( enabled: true, owner: cn );
 
 		return cl;
@@ -72,7 +81,7 @@ partial class GameManager : Component.INetworkListener
 		return cl.IsValid();
 	}
 
-	public virtual bool TryAssignPawn( Client cl, GameObject pawnObj, out Pawn pawn )
+	public static bool TryAssignPawn( Client cl, GameObject pawnObj, out Pawn pawn )
 	{
 		if ( !cl.IsValid() || !pawnObj.IsValid() )
 		{
@@ -88,14 +97,17 @@ partial class GameManager : Component.INetworkListener
 			return false;
 		}
 
+		if ( State.TryGetInstance( out var state ) )
+			state.OnPawnAssigned( cl, pawn );
+
 		return true;
 	}
 
-	protected virtual Pawn AssignDefaultPawn( Client cl )
+	public Pawn AssignDefaultPawn( Client cl )
 	{
 		if ( !PlayerPrefab.IsValid() )
 		{
-			Log.Warning( $"Couldn't create default pawn for client:[{cl}]!" );
+			Log.Warning( $"No valid default player pawn for client:[{cl}]!" );
 			return null;
 		}
 
