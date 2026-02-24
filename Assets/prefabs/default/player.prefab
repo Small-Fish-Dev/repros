@@ -9,7 +9,7 @@
     "Scale": "1,1,1",
     "Tags": "",
     "Enabled": true,
-    "NetworkMode": 2,
+    "NetworkMode": 1,
     "NetworkFlags": 0,
     "NetworkOrphaned": 0,
     "NetworkTransmit": true,
@@ -51,7 +51,7 @@
         "BouncingEnabled": false,
         "Collider": {
           "_type": "component",
-          "component_id": "892be08f-adf4-4953-b7f0-47fcb311f8c8",
+          "component_id": "4c695cee-dc65-457b-8e67-7a1c4bdaff25",
           "go": "78b750e5-8b79-4cd9-9543-8526da53e793",
           "component_type": "HullCollider"
         },
@@ -190,7 +190,7 @@
       },
       {
         "__type": "Sandbox.HullCollider",
-        "__guid": "892be08f-adf4-4953-b7f0-47fcb311f8c8",
+        "__guid": "4c695cee-dc65-457b-8e67-7a1c4bdaff25",
         "__enabled": true,
         "Flags": 1,
         "BoxSize": "50,50,50",
@@ -232,9 +232,9 @@
         "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
-        "NetworkMode": 2,
+        "NetworkMode": 1,
         "NetworkFlags": 0,
-        "NetworkOrphaned": 0,
+        "NetworkOrphaned": 3,
         "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
