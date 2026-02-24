@@ -95,14 +95,14 @@ public partial class Player : Pawn
 		EyeAngles += Input.AnalogLook;
 		EyeAngles = EyeAngles.WithPitch( MathX.Clamp( EyeAngles.pitch, -89.5f, 89.5f ) );
 
+		var rEye = WorldTransform.RotationToWorld( EyeAngles );
+
 		if ( Renderer.IsValid() )
-			Renderer.WorldRotation = Rotation.Slerp( Renderer.WorldRotation, Rotation.FromYaw( EyeAngles.yaw ), Time.Delta * 15f );
+			Renderer.WorldRotation = Rotation.Slerp( Renderer.WorldRotation, Rotation.FromYaw( rEye.Yaw() ), Time.Delta * 15f );
 
 		if ( Camera.IsValid() )
 		{
 			var eyePos = WorldTransform.PointToWorld( Vector3.Up * 64f );
-			var rEye = WorldTransform.RotationToWorld( EyeAngles );
-
 			eyePos += rEye.Backward * 256f;
 
 			Camera.WorldRotation = rEye;
