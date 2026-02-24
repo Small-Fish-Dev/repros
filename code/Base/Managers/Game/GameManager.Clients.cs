@@ -7,6 +7,9 @@ partial class GameManager : Component.INetworkListener
 	[Property]
 	public GameObject ClientPrefab { get; set; }
 
+	/// <summary>
+	/// The default pawn to assign if the state doesn't have one.
+	/// </summary>
 	[Property]
 	public GameObject PlayerPrefab { get; set; }
 
@@ -24,7 +27,11 @@ partial class GameManager : Component.INetworkListener
 			return;
 		}
 
-		AssignDefaultPawn( cl );
+		if ( State.TryGetInstance( out var state ) )
+			state.OnClientJoined( cl, cn );
+
+		if ( !cl.GetPawn().IsValid() )
+			AssignDefaultPawn( cl );
 	}
 
 	public virtual void OnDisconnected( Connection cn )
@@ -60,9 +67,6 @@ partial class GameManager : Component.INetworkListener
 		}
 
 		cl.AssignConnection( cn );
-
-		if ( State.TryGetInstance( out var state ) )
-			state.OnClientCreated( cl, cn );
 
 		clObj.NetworkSpawn( enabled: true, owner: cn );
 
@@ -103,7 +107,7 @@ partial class GameManager : Component.INetworkListener
 		return true;
 	}
 
-	public Pawn AssignDefaultPawn( Client cl )
+	protected Pawn AssignDefaultPawn( Client cl )
 	{
 		if ( !PlayerPrefab.IsValid() )
 		{
